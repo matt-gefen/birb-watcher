@@ -18,11 +18,16 @@ function index(req, res) {
 function show(req,res) {
   Profile.findById(req.params.id)
   .then(profile => {
-    res.render(`profiles/show`,{
-    profile,
-    title: `${profile.name}'s Profile'`,
-    states},
-    )
+    Profile.findById(req.user.profile._id)
+    .then(self => {
+      const isSelf = self._id.equals(profile._id)
+      res.render(`profiles/show`,{
+        profile,
+        title: `${profile.name}'s Profile'`,
+        states,
+        isSelf},
+        )
+    })
   })
   .catch(error => {
     console.log(error)
