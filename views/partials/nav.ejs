@@ -5,6 +5,15 @@
 <body>
   <nav>
     <% if (user) { %>
+      <a href="/profiles/show/<%=user.id%>">
+        <button type="submit">My Sightings</button>
+      </a>
+      <a href="/profiles">
+        <button type="submit">Watchers</button>
+      </a>
+      <a href="/birbs">
+        <button type="submit">Birbs</button>
+      </a>
       <a href="/auth/logout">
         <button type="submit">Logout</button>
       </a>
