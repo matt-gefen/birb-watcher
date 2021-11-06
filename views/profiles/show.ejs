@@ -7,6 +7,32 @@
   <% } else { %>
   <h1><%= profile.name%>'s Sightings</h1>
   <% } %> 
+  <% if (user) { %>
+    <h2>Add Sighting</h2>
+    <form action="/profiles/<%=profile._id%>" method='POST'>
+      <label>
+        Date:
+        <input type="date" name='date'>
+      </label><br>
+      <label>
+        City:
+        <input type="text" name='city'>
+      </label><br>
+      <label>
+        State:
+        <select name="state">
+          <% states.forEach((state) => { %> 
+            <option value="<%=state%>"><%=state%></option>
+          <% }) %> 
+        </select>
+      </label><br>
+      <button>Add Sightings</button>
+    </form>
+    
+  <% } %>
+
+<h2>Sightings</h2>
+
 </main>
 
 <%- include('../partials/footer') %>
