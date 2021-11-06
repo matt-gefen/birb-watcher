@@ -2,7 +2,11 @@
 <%- include('../partials/nav') %>
 
 <main>
+  <% if (user) { %>
+    <h1>Your Sightings</h1>
+  <% } else { %>
   <h1><%= profile.name%>'s Sightings</h1>
+  <% } %> 
 </main>
 
 <%- include('../partials/footer') %>
