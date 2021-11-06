@@ -1,7 +1,13 @@
 import {Profile} from "../models/profile.js"
 
 function index(req, res) {
-  console.log('indexed watchers')
+  Profile.find({})
+  .then(profiles => {
+    res.render(`profiles/index`, {
+      profiles,
+      title: 'All Watchers'
+    })
+  })
 }
 
 export {
