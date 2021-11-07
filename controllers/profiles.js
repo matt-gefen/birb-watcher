@@ -25,8 +25,31 @@ function show(req,res) {
         profile,
         title: `${profile.name}'s Profile'`,
         states,
-        isSelf},
-        )
+        isSelf
+        },
+      )
+    })
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect(`/profiles`)
+  })
+}
+
+function showSighting(req,res) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    Profile.findById(req.user.profile._id)
+    .then(self => {
+      const isSelf = self._id.equals(profile._id)
+
+      res.render(`profiles/showSighting`,{
+        profile,
+        title: 'Sighting Details',
+        isSelf,
+        sighting: profile.sightings.filter(sight => String(sight._id) === req.params.sightingId)
+        },
+      )
     })
   })
   .catch(error => {
@@ -41,6 +64,7 @@ function createSighting(req, res) {
   .then(profile => {
     profile.sightings.push(req.body)
     profile.save()
+    res.redirect(`/profiles/${req.params.id}`)
   })
   .catch(error => {
     console.log(error)
@@ -52,5 +76,6 @@ function createSighting(req, res) {
 export {
   index,
   show,
-  createSighting
+  createSighting,
+  showSighting
 }
