@@ -62,6 +62,8 @@ function createSighting(req, res) {
 
   Profile.findById(req.params.id)
   .then(profile => {
+    let dateSighted = new Date(req.body.date)
+    req.body.date = dateSighted.toUTCString()
     profile.sightings.push(req.body)
     profile.save()
     res.redirect(`/profiles/${req.params.id}`)
@@ -76,6 +78,7 @@ function createSighting(req, res) {
 function editSighting(req, res) {
   Profile.findById(req.params.id)
   .then(profile => {
+    
     const sighting = profile.sightings.find(sight => (String(sight._id) === req.params.sightingId))
     res.render(`profiles/editSighting`, {
       profile,
@@ -93,6 +96,8 @@ function editSighting(req, res) {
 function updateSighting(req, res) {
   Profile.findById(req.params.id)
   .then(profile => {
+    let dateSighted = new Date(req.body.date)
+    req.body.date = dateSighted.toUTCString()
     const sighting = profile.sightings.findIndex(sight => (String(sight._id) === req.params.sightingId))
     // console.log(req.body)
     profile.sightings[sighting] = req.body
