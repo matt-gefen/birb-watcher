@@ -74,9 +74,14 @@ function createSighting(req, res) {
 
 }
 
+function editSighting(req, res) {
+  console.log('editing')
+}
+
 export {
   index,
   show,
   createSighting,
-  showSighting
+  showSighting,
+  editSighting
 }
