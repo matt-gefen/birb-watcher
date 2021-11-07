@@ -42,12 +42,13 @@ function showSighting(req,res) {
     Profile.findById(req.user.profile._id)
     .then(self => {
       const isSelf = self._id.equals(profile._id)
-
+      const sighting = profile.sightings.filter(sight => String(sight._id) === req.params.sightingId)
+      console.log(sighting)
       res.render(`profiles/showSighting`,{
         profile,
         title: 'Sighting Details',
         isSelf,
-        sighting: profile.sightings.filter(sight => String(sight._id) === req.params.sightingId)
+        sighting: sighting[0]
         },
       )
     })
