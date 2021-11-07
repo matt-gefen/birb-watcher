@@ -11,10 +11,10 @@
 <main>
   <h1><%= title %></h1>
     <h2>Add Sighting</h2>
-    <form action="/profiles/<%=profile._id%>/<%=sighting._id%>?_method:PATCH" method='POST'>
+    <form action="/profiles/<%=profile._id%>/<%=sighting._id%>?_method=PATCH" method='POST'>
       <label>
         Date:
-        <input type="date" name='date' value='<%= sighting.date %>'>
+        <input type="date" name='date' value='<%= sighting.date%>'>
       </label><br>
       <label>
         City:
@@ -29,7 +29,7 @@
           <% }) %> 
         </select>
       </label><br>
-      <button>Edit Sightings</button>
+      <button type="submit">Edit Sighting</button>
     </form>
 </main>
 

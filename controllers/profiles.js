@@ -81,8 +81,30 @@ function editSighting(req, res) {
       profile,
       sighting,
       states,
-      title: `Edit Sighting`
+      title: `Edit Sighting Details`
     })
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect(`/profiles/${req.params.id}`)
+  })
+}
+
+function updateSighting(req, res) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    const sighting = profile.sightings.findIndex(sight => (String(sight._id) === req.params.sightingId))
+    // console.log(req.body)
+    profile.sightings[sighting] = req.body
+    profile.save()
+    // console.log(profile.sightings[sighting])
+  })
+  .then(() => {
+    res.redirect(`/profiles/${req.params.id}`)
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect(`/profiles/${req.params.id}`)
   })
 }
 
@@ -91,5 +113,6 @@ export {
   show,
   createSighting,
   showSighting,
-  editSighting
+  editSighting,
+  updateSighting
 }
