@@ -9,7 +9,28 @@
 <%- include('../partials/nav') %>
 
 <main>
-
+  <h1><%= title %></h1>
+    <h2>Add Sighting</h2>
+    <form action="/profiles/<%=profile._id%>/<%=sighting._id%>?_method:PATCH" method='POST'>
+      <label>
+        Date:
+        <input type="date" name='date' value='<%= sighting.date %>'>
+      </label><br>
+      <label>
+        City:
+        <input type="text" name='city' value='<%= sighting.city %>'>
+      </label><br>
+      <label>
+        State:
+        <select name="state">
+          <option value='<%=sighting.state %>'><%=sighting.state %></option>
+          <% states.forEach((state) => { %> 
+            <option value="<%=state%>"><%=state%></option>
+          <% }) %> 
+        </select>
+      </label><br>
+      <button>Edit Sightings</button>
+    </form>
 </main>
 
 <%- include('../partials/footer') %>

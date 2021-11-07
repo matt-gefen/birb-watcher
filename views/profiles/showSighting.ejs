@@ -12,7 +12,9 @@
   <h1><%= title %>:</h1>
   <h2>Date: <%=sighting.date.toLocaleDateString()%></h2>
   <h2>Location: <%= sighting.city %>, <%= sighting.state%> </h2>
-  <a href="/profiles/<%=profile._id%>/<%=sighting._id%>/edit"><button type="submit">Edit Details</button></a>
+  <% if (isSelf) { %>
+    <a href="/profiles/<%=profile._id%>/<%=sighting._id%>/edit"><button type="submit">Edit Details</button></a>   
+  <% } %>
   <h2>Birds</h2>
 </main>
 

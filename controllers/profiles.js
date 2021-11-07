@@ -42,13 +42,12 @@ function showSighting(req,res) {
     Profile.findById(req.user.profile._id)
     .then(self => {
       const isSelf = self._id.equals(profile._id)
-      const sighting = profile.sightings.filter(sight => String(sight._id) === req.params.sightingId)
-      console.log(sighting)
+      const sighting = profile.sightings.find(sight => String(sight._id) === req.params.sightingId)
       res.render(`profiles/showSighting`,{
         profile,
         title: 'Sighting Details',
         isSelf,
-        sighting: sighting[0]
+        sighting
         },
       )
     })
@@ -75,7 +74,16 @@ function createSighting(req, res) {
 }
 
 function editSighting(req, res) {
-  console.log('editing')
+  Profile.findById(req.params.id)
+  .then(profile => {
+    const sighting = profile.sightings.find(sight => (String(sight._id) === req.params.sightingId))
+    res.render(`profiles/editSighting`, {
+      profile,
+      sighting,
+      states,
+      title: `Edit Sighting`
+    })
+  })
 }
 
 export {
