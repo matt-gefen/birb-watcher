@@ -113,11 +113,28 @@ function updateSighting(req, res) {
   })
 }
 
+function deleteSighting(req, res) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    profile.sightings.remove({_id:req.params.sightingId})
+    profile.save()
+  })
+  .then(() => {
+    res.redirect(`/profiles/${req.params.id}`)
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect(`/profiles/${req.params.id}`)
+  })
+
+}
+
 export {
   index,
   show,
   createSighting,
   showSighting,
   editSighting,
-  updateSighting
+  updateSighting,
+  deleteSighting
 }

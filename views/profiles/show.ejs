@@ -34,20 +34,22 @@
       </label><br>
       <button>Add Sightings</button>
     </form>
-    
   <% } %>
 
 <h2>Sightings</h2>
 <% profile.sightings.sort((a,b) => {return b.date - a.date}) %>
 <% profile.sightings.forEach(sighting => { %>
   <div class="card text-center">
-    <div class="card-header">
+    <div id='sighting-header' class="card-header">
       Sighting
+      <form action='/profiles/<%=profile._id%>/<%=sighting._id%>?_method=DELETE' method='post'>
+        <button type="submit">X</button>
+      </form>
     </div>
     <div class="card-body">
       <h5 class="card-title"><%= sighting.city %>, <%= sighting.state %> </h5>
       <p class="card-text">Birds go here</p>
-      <a href="/profiles/<%=profile.id%>/<%=sighting.id%>" class="btn btn-primary">Details</a>
+      <a href="/profiles/<%=profile._id%>/<%=sighting._id%>" class="btn btn-primary">Details</a>
     </div>
     <div class="card-footer text-muted">
       <%= sighting.date %>
