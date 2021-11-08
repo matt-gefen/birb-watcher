@@ -37,12 +37,16 @@
         <textarea name="notes">Anything Notable?</textarea>
       </label><br>
       <label>
-        Bird:
-        <select>
+        Bird Species:
+        <select name='bird'>
           <% usSpecies.forEach((species) => { %> 
             <option value="<%=species.speciesCode%>"><%=species.comName%></option>
           <% }) %> 
         </select>
+      </label><br>
+      <label>
+        Quantity:
+          <input name='birdQuantity' type="number" value="1">
       </label><br>
       <button>Add Sightings</button>
     </form>

@@ -15,20 +15,43 @@ const apiUrl = 'https://api.ebird.org/v2/ref/taxonomy/ebird?fmt=json&species=wfw
   
 // }
 
-async function getAllSpecies() {
-  let apiUrl = `https://api.ebird.org/v2/ref/taxonomy/ebird?fmt=json`
-  const response = await axios.get(apiUrl)
-  let usBirds = []       
-  response.data.forEach(species => {
-    if(usBirdSpeciesCodes.includes(species.speciesCode)) {
-      usBirds.push({
-        speciesCode: species.speciesCode,
-        comName: species.comName
-      })
+// async function getAllSpecies() {
+//   let apiUrl = `https://api.ebird.org/v2/ref/taxonomy/ebird?fmt=json`
+//   const response = await axios.get(apiUrl)
+//   let usBirds = []       
+//   response.data.forEach(species => {
+//     if(usBirdSpeciesCodes.includes(species.speciesCode)) {
+//       usBirds.push({
+//         speciesCode: species.speciesCode,
+//         comName: species.comName
+//       })
+//     }
+//   })
+//   return usBirds
+// }
+
+
+// getAllSpecies()
+
+async function createBird(speciesCode, quantity) {
+  try {
+    let apiUrl = `https://api.ebird.org/v2/ref/taxonomy/ebird?fmt=json&species=${speciesCode}`
+    const response = await axios.get(apiUrl)
+    const body = response.data[0]
+    // console.log(body)
+    const bird = {
+      commonName: body.comName,
+      speciesName: body.speciesName,
+      speciesCode: body.speciesCode,
+      familyComName: body.familyComName,
+      cornellLink: `https://ebird.org/species/${body.speciesCode}`,
+      quantity,
+      notes: 'eh'
     }
-  })
-  return usBirds
+    return bird
+  } catch(error) {
+    console.log(error)
+  }
 }
 
-
-getAllSpecies()
+console.log(createBird('yebcha',2))
