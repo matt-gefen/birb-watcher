@@ -52,7 +52,7 @@
       <a href="/profiles/<%=profile._id%>/<%=sighting._id%>" class="btn btn-primary">Details</a>
     </div>
     <div class="card-footer text-muted">
-      <%= sighting.date %>
+      <%= sighting.date.toLocaleDateString() %>
     </div>
   </div>
 <% }) %> 
