@@ -2,6 +2,19 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
+const birdSchema = new Schema(
+  {  
+    commonName: String,
+    speciesName: String,
+    speciesCode: String,
+    familyComName: String,
+    cornellLink: String,
+    quantity: Number,
+    notes: String,
+  }
+
+)
+
 const sightingSchema = new Schema(
   {
     date: {
@@ -10,7 +23,7 @@ const sightingSchema = new Schema(
     city: String,
     state: String,
     notes: String,
-    birds: []
+    birds: [birdSchema]
 
   }
 )

@@ -1,5 +1,7 @@
 import {Profile} from "../models/profile.js"
 import {states} from "../data/states.js"
+import { usBirdSpeciesCodes } from "../data/usBirds.js"
+import axios from 'axios'
 
 function index(req, res) {
   Profile.find({})
@@ -14,26 +16,39 @@ function index(req, res) {
     res.redirect(`/profiles/${req.user.profile._id}`)
   })
 }
+async function getSpeciesNames() {
+  let apiUrl = `https://api.ebird.org/v2/ref/taxonomy/ebird?fmt=json`
+  const response = await axios.get(apiUrl)
+  let usBirds = []       
+  response.data.forEach(species => {
+    if(usBirdSpeciesCodes.includes(species.speciesCode)) {
+      usBirds.push({
+        speciesCode: species.speciesCode,
+        comName: species.comName
+      })
+    }
+  })
+  return usBirds
+}
 
-function show(req,res) {
-  Profile.findById(req.params.id)
-  .then(profile => {
-    Profile.findById(req.user.profile._id)
-    .then(self => {
-      const isSelf = self._id.equals(profile._id)
-      res.render(`profiles/show`,{
+async function show(req,res) {
+  try {
+    const profile = await Profile.findById(req.params.id)
+    const self = await Profile.findById(req.user.profile._id)
+    const isSelf = await self._id.equals(profile._id)
+    const usSpecies = await getSpeciesNames()
+    res.render(`profiles/show`,{
         profile,
         title: `${profile.name}'s Profile'`,
         states,
+        usSpecies,
         isSelf
         },
       )
-    })
-  })
-  .catch(error => {
+  } catch (error) {
     console.log(error)
     res.redirect(`/profiles`)
-  })
+  }
 }
 
 function showSighting(req,res) {
