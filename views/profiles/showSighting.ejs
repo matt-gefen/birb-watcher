@@ -6,6 +6,7 @@
   crossorigin="anonymous"
 >
 <link rel="stylesheet" href="/stylesheets/showSighting.css">
+<%- include('../partials/search') %>
 <%- include('../partials/nav') %>
 
 <main>
@@ -16,7 +17,7 @@
   <% if (isSelf) { %>
     <a href="/profiles/<%=profile._id%>/<%=sighting._id%>/edit"><button type="submit">Edit Details</button></a>   
   <% } %>
-  <h2>Birds</h2>
+  <h1>Birds Sighted:</h1>
   <% if (sighting.birds.length) { %>
     <% sighting.birds.forEach(bird => {  %> 
       <div class="card text-center">
@@ -27,14 +28,27 @@
         </div>
         <div class="card-body">
           <h5 class="card-title"><%= bird.commonName %> </h5>
-          <p class="card-text">Quantity: <%=bird.quantity%></p>
           <a href="/profiles/<%=profile._id%>/<%=sighting._id%>" class="btn btn-primary">Details</a>
         </div>
         <div class="card-footer text-muted">
         </div>
       </div>
     <% }) %> 
-  <% } %>
+  <% } else { %>
+    <h3>No Birds Added</h3>
+  <% } %> 
+
+  <form action='/profiles/<%=profile._id%>/<%=sighting._id%>' method='post'>
+    <label>
+      Add Bird Sighted:
+      <select class="js-example-basic-single" name='bird'>
+        <% usSpecies.forEach((species) => { %> 
+          <option value="<%=species.speciesCode%>"><%=species.comName%></option>
+        <% }) %> 
+      </select>
+    </label><br>
+    <button type="submit">Add Birds</button>
+  </form>
   <form action='/profiles/<%=profile._id%>/<%=sighting._id%>?_method=DELETE' method='post'>
     <button type="submit">Delete Sighting</button>
   </form>

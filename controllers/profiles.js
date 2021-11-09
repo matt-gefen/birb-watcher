@@ -51,29 +51,28 @@ async function show(req,res) {
   }
 }
 
-function showSighting(req,res) {
-  Profile.findById(req.params.id)
-  .then(profile => {
-    Profile.findById(req.user.profile._id)
-    .then(self => {
-      const isSelf = self._id.equals(profile._id)
-      const sighting = profile.sightings.find(sight => String(sight._id) === req.params.sightingId)
-      res.render(`profiles/showSighting`,{
+async function showSighting(req,res) {
+  try {
+  const profile = await Profile.findById(req.params.id)
+  const self = await Profile.findById(req.user.profile._id)
+  const isSelf = await self._id.equals(profile._id)
+  const sighting = await profile.sightings.find(sight => String(sight._id) === req.params.sightingId)
+  const usSpecies = await getSpeciesNames()
+        res.render(`profiles/showSighting`,{
         profile,
         title: 'Sighting Details',
         isSelf,
-        sighting
+        sighting,
+        usSpecies
         },
       )
-    })
-  })
-  .catch(error => {
+  } catch (error) {
     console.log(error)
-    res.redirect(`/profiles`)
-  })
+    res.redirect(`/profiles/${req.params.id}`)
+  }
 }
 
-async function createBird(speciesCode, quantity) {
+async function getBird(speciesCode) {
   try {
     let apiUrl = `https://api.ebird.org/v2/ref/taxonomy/ebird?fmt=json&species=${speciesCode}`
     const response = await axios.get(apiUrl)
@@ -84,8 +83,7 @@ async function createBird(speciesCode, quantity) {
       speciesName: body.sciName,
       speciesCode: body.speciesCode,
       familyComName: body.familyComName,
-      cornellLink: `https://ebird.org/species/${body.speciesCode}`,
-      quantity
+      cornellLink: `https://ebird.org/species/${body.speciesCode}`
     }
     return bird
   } catch(error) {
@@ -96,10 +94,10 @@ async function createBird(speciesCode, quantity) {
 async function createSighting(req, res) {
   try {
     const profile = await Profile.findById(req.params.id)
-    const dateSighted = new Date(req.body.date)
+    let dateSighted = new Date(req.body.date)
     req.body.date = dateSighted.toUTCString()
     req.body.birds = []
-    const bird = await createBird(req.body.bird,req.body.birdQuantity)
+    const bird = await getBird(req.body.bird)
     req.body.birds.push(bird)
     profile.sightings.push(req.body)
     profile.save()
@@ -171,6 +169,21 @@ function deleteSighting(req, res) {
 
 }
 
+async function createBird(req, res) {
+  try {
+    console.log(req.params)
+    const profile = await Profile.findById(req.params.id)
+    const sightingIndx = await profile.sightings.findIndex(sight => String(sight._id) === req.params.sightingId)
+    const newBird = await getBird(req.body.bird)
+    profile.sightings[sightingIndx].birds.push(newBird)
+    profile.save()
+    res.redirect(`/profiles/${req.params.id}/${req.params.sightingId}`)
+
+  } catch(error) {
+    console.log(error)
+  }
+}
+
 export {
   index,
   show,
@@ -178,5 +191,6 @@ export {
   showSighting,
   editSighting,
   updateSighting,
-  deleteSighting
+  deleteSighting,
+  createBird
 }

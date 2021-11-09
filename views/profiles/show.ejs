@@ -45,10 +45,6 @@
           <% }) %> 
         </select>
       </label><br>
-      <label>
-        Quantity:
-          <input name='birdQuantity' type="number" value="1">
-      </label><br>
       <button>Add Sightings</button>
     </form>
   <% } %>
@@ -64,7 +60,11 @@
     </div>
     <div class="card-body">
       <h5 class="card-title"><%= sighting.city %>, <%= sighting.state %> </h5>
-      <p class="card-text">Birds go here</p>
+      <p class="card-text">
+        <% sighting.birds.forEach(bird => { %> 
+          <%= bird.commonName %>
+        <% }) %> 
+      </p>
       <a href="/profiles/<%=profile._id%>/<%=sighting._id%>" class="btn btn-primary">Details</a>
     </div>
     <div class="card-footer text-muted">

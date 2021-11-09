@@ -9,7 +9,6 @@ const birdSchema = new Schema(
     speciesCode: String,
     familyComName: String,
     cornellLink: String,
-    quantity: Number
   }
 
 )
