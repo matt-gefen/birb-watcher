@@ -5,15 +5,20 @@
   integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
   crossorigin="anonymous"
 >
+<%- include('../partials/search') %>
 <%- include('../partials/nav') %>
 
 <main>
   <h1>Search for Birbs!</h1>
-  <select class="js-example-basic-single" name='bird'>
-    <% usSpecies.forEach((species) => { %> 
-      <option value="<%=species.speciesCode%>"><%=species.comName%></option>
-    <% }) %> 
-    <button>View Bird Details</button>
+  <form action="/birbs" method="post">
+    <select class="js-example-basic-single" name='bird'>
+      <% usSpecies.forEach((species) => { %> 
+        <option value="<%=species.speciesCode%>"><%=species.comName%></option>
+      <% }) %> 
+    </select><br>
+    <button type="submit">View Bird Details</button>
+  </form>
+
 </main>
 
 <%- include('../partials/footer') %>

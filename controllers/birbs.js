@@ -31,6 +31,16 @@ async function index(req, res) {
   }
 }
 
+async function show(req, res) {
+  try
+    {
+      console.log('now showing')
+    } catch (error){
+      console.log(error)
+    }
+}
+
 export {
-  index
+  index,
+  show
 }
