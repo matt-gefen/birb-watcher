@@ -39,7 +39,7 @@ async function show(req,res) {
     const usSpecies = await getSpeciesNames()
     res.render(`profiles/show`,{
         profile,
-        title: `${profile.name}'s Profile'`,
+        title: `${profile.name}'s Profile`,
         states,
         usSpecies,
         isSelf

@@ -12,6 +12,7 @@
   <h1><%= title %></h1>
     <h2>Add Sighting</h2>
     <form action="/profiles/<%=profile._id%>/<%=sighting._id%>?_method=PATCH" method='POST'>
+    <form action="/reviews/<%=profile._id%>/<%=sighting._id%>?_method=PATCH" method='POST'>
       <label>
         Date:
         <input type="date" name='date' value='<%= sighting.date%>'>
