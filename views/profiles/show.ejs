@@ -35,7 +35,7 @@
       </label><br>
       <label>
         Notes: <br>
-        <textarea name="notes">Anything Notable?</textarea>
+        <textarea name="notes" placeholder="Anything Notable?"></textarea>
       </label><br>
       <label>
         Bird Species:
@@ -58,7 +58,6 @@
 <% profile.sightings.forEach(sighting => { %>
   <div class="card text-center">
     <div id='sighting-header' class="card-header">
-      Sighting
       <form action='/profiles/<%=profile._id%>/<%=sighting._id%>?_method=DELETE' method='post'>
         <button type="submit">X</button>
       </form>

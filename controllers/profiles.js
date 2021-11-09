@@ -85,8 +85,7 @@ async function createBird(speciesCode, quantity) {
       speciesCode: body.speciesCode,
       familyComName: body.familyComName,
       cornellLink: `https://ebird.org/species/${body.speciesCode}`,
-      quantity,
-      notes: 'eh'
+      quantity
     }
     return bird
   } catch(error) {
@@ -132,16 +131,23 @@ function editSighting(req, res) {
 function updateSighting(req, res) {
   Profile.findById(req.params.id)
   .then(profile => {
+    const sighting = profile.sightings.find(sighting => req.params.sightingId === String(sighting._id))
+    const sightingIndx = profile.sightings.findIndex(sighting => req.params.sightingId === String(sighting._id))
+  
+    const birds = sighting.birds
     let dateSighted = new Date(req.body.date)
+    req.body.birds = birds
     req.body.date = dateSighted.toUTCString()
-    const sighting = profile.sightings.findIndex(sight => (String(sight._id) === req.params.sightingId))
-    // console.log(req.body)
-    profile.sightings[sighting] = req.body
+    profile.sightings[sightingIndx].date = req.body.date
+    profile.sightings[sightingIndx].city = req.body.city
+    profile.sightings[sightingIndx].notes = req.body.notes
+    profile.sightings[sightingIndx].birds = req.body.birds
+
     profile.save()
-    // console.log(profile.sightings[sighting])
-  })
-  .then(() => {
-    res.redirect(`/profiles/${req.params.id}`)
+
+    .then(() => {
+      res.redirect(`/profiles/${req.params.id}`)
+    })
   })
   .catch(error => {
     console.log(error)

@@ -12,10 +12,29 @@
   <h1><%= title %>:</h1>
   <h2>Date: <%=sighting.date.toDateString()%></h2>
   <h2>Location: <%= sighting.city %>, <%= sighting.state%> </h2>
+  <h3>Notes: <%= sighting.notes %></h3>
   <% if (isSelf) { %>
     <a href="/profiles/<%=profile._id%>/<%=sighting._id%>/edit"><button type="submit">Edit Details</button></a>   
   <% } %>
   <h2>Birds</h2>
+  <% if (sighting.birds.length) { %>
+    <% sighting.birds.forEach(bird => {  %> 
+      <div class="card text-center">
+        <div id='sighting-header' class="card-header">
+          <!-- <form action='/profiles/<%=profile._id%>/<%=sighting._id%>?_method=DELETE' method='post'> -->
+            <!-- <button type="submit">X</button> -->
+          </form>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= bird.commonName %> </h5>
+          <p class="card-text">Quantity: <%=bird.quantity%></p>
+          <a href="/profiles/<%=profile._id%>/<%=sighting._id%>" class="btn btn-primary">Details</a>
+        </div>
+        <div class="card-footer text-muted">
+        </div>
+      </div>
+    <% }) %> 
+  <% } %>
   <form action='/profiles/<%=profile._id%>/<%=sighting._id%>?_method=DELETE' method='post'>
     <button type="submit">Delete Sighting</button>
   </form>
