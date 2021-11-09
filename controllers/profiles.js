@@ -184,6 +184,19 @@ async function createBird(req, res) {
   }
 }
 
+async function deleteBird(req, res) {
+  try {
+    const profile = await Profile.findById(req.params.id)
+    const sightingIndx = await profile.sightings.findIndex(sight => String(sight._id) === req.params.sightingId)
+    profile.sightings[sightingIndx].birds.remove({_id:req.params.birdId})
+    profile.save()
+    res.redirect(`/profiles/${req.params.id}/${req.params.sightingId}`)
+  } catch(error) {
+    console.log(error)
+    res.redirect(`/profiles/${req.params.id}/${req.params.sightingId}`)
+  }
+}
+
 export {
   index,
   show,
@@ -192,5 +205,6 @@ export {
   editSighting,
   updateSighting,
   deleteSighting,
-  createBird
+  createBird,
+  deleteBird
 }

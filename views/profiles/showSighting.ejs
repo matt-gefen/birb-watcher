@@ -22,9 +22,9 @@
     <% sighting.birds.forEach(bird => {  %> 
       <div class="card text-center">
         <div id='sighting-header' class="card-header">
-          <!-- <form action='/profiles/<%=profile._id%>/<%=sighting._id%>?_method=DELETE' method='post'> -->
-            <!-- <button type="submit">X</button> -->
-          </form>
+            <form action='/profiles/<%=profile._id%>/<%=sighting._id%>/<%=bird._id%>/?_method=DELETE' method='post'>
+              <button type="submit">X</button>
+            </form>
         </div>
         <div class="card-body">
           <h5 class="card-title"><%= bird.commonName %> </h5>
