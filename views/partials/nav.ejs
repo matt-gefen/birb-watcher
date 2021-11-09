@@ -5,7 +5,7 @@
 <body>
   <nav>
     <% if (user) { %>
-      <a href="/profiles/show/<%=user.id%>">
+      <a href="/profiles/<%=user.id%>">
         <button type="submit">My Sightings</button>
       </a>
       <a href="/profiles">

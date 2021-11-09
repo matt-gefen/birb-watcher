@@ -5,7 +5,8 @@ import { isLoggedIn } from '../middleware/middleware.js'
 const router = Router() 
 
 router.get('/', isLoggedIn, birbsCtrl.index)
-router.post('/', isLoggedIn, birbsCtrl.show)
+router.get('/:id', isLoggedIn, birbsCtrl.show)
+router.post('/', isLoggedIn, birbsCtrl.findBird)
 
 export {
   router
