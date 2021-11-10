@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Exo+2&display=swap');
 html {
   box-sizing: border-box;
   min-height: 100%;
-  background-color: #93B7BE;
+  background-color: #5E4AE3;
 }
 
 /* The Universal Selector */
@@ -21,16 +22,16 @@ html {
 
 body {
   min-height: 100%;
-  background-color: #93B7BE;
+  background-color: #16E0BD;
   /* Use a system font, if none are available use an available sans-sarif font */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: 'Exo 2', sans-serif;
   margin: 0;
 }
 
 nav {
+  font-family: 'Cabin', sans-serif;
   height: 60px;
-  background-color: #0B5563;
+  background-color: #BBB6DF;
   font-size: 1.6rem;
   display: flex;
   align-items: center;
@@ -39,14 +40,39 @@ nav {
 }
 
 main {
+  color: white;
   /* height: 100%; */
-  background-color: #93B7BE;
+  font-family: 'Cabin', sans-serif;
+  background-color: #5E4AE3;
   display: flex;
+  gap: 10px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
-h1 {
-  font-size: 3.6rem;
+#show-title {
+  margin-top: 20px;
+}
+
+.card {
+  color: black;
+  width: 75%;
+}
+
+#sighting-header {
+  display: flex;
+  align-items: flex-start;
+}
+
+#sighting-delete {
+  display: flex;
+  align-items: flex-end;
+}
+
+#add-sighting-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 14px;
 }

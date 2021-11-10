@@ -10,13 +10,13 @@
 
 <main>
   <% if (isSelf) { %>
-    <h1>Your Sightings</h1>
+    <h1 id='show-title'>Your Sightings</h1>
   <% } else { %>
   <h1><%= profile.name%>'s Sightings</h1>
   <% } %> 
   <% if (isSelf) { %>
     <h2>Add Sighting</h2>
-    <form action="/profiles/<%=profile._id%>" method='POST'>
+    <form id='add-sighting-form' action="/profiles/<%=profile._id%>" method='POST'>
       <label>
         Date:
         <input type="date" name='date'>
@@ -54,16 +54,17 @@
 <% profile.sightings.forEach(sighting => { %>
   <div class="card text-center">
     <div id='sighting-header' class="card-header">
-      <form action='/profiles/<%=profile._id%>/<%=sighting._id%>?_method=DELETE' method='post'>
+      <form id='sighting-delete' action='/profiles/<%=profile._id%>/<%=sighting._id%>?_method=DELETE' method='post'>
         <button type="submit">X</button>
       </form>
     </div>
     <div class="card-body">
       <h5 class="card-title"><%= sighting.city %>, <%= sighting.state %> </h5>
       <p class="card-text">
-        <% sighting.birds.forEach(bird => { %> 
-          <%= bird.commonName %>
+        <% sighting.birds.forEach(bird => { %>
+          <%=bird.commonName%><br>
         <% }) %> 
+        </ul>
       </p>
       <a href="/profiles/<%=profile._id%>/<%=sighting._id%>" class="btn btn-primary">Details</a>
     </div>
