@@ -11,7 +11,7 @@
 <main>
   <% if (isSelf) { %>
     <h1 class='title'>Add Sighting</h1>
-    <form id='add-sighting-form' action="/profiles/<%=profile._id%>" method='POST'>
+    <form class='add-sighting-form' action="/profiles/<%=profile._id%>" method='POST'>
       <label>
         Date:
         <input type="date" name='date' value='<%=defaultDate%>'>
@@ -54,7 +54,7 @@
     <div id='sighting-header' class="card-header">
       <% if (isSelf) { %>
       <form id='sighting-delete' action='/profiles/<%=profile._id%>/<%=sighting._id%>?_method=DELETE' method='post'>
-        <button type="submit">X</button>
+        <button class='delete-button' type="submit">X</button>
       </form>
       <% } %> 
     </div>
@@ -66,7 +66,7 @@
         <% }) %> 
         </ul>
       </p>
-      <a href="/profiles/<%=profile._id%>/<%=sighting._id%>" class="btn btn-primary">Details</a>
+      <a href="/profiles/<%=profile._id%>/<%=sighting._id%>"><button class='submit-button card-button'>Details</button></a>
     </div>
     <div class="card-footer text-muted">
       <%= sighting.date.getUTCMonth() + 1%>/<%= sighting.date.getUTCDate() %>/<%= sighting.date.getUTCFullYear() %>

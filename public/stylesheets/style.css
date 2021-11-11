@@ -53,6 +53,7 @@ main {
 
 .title {
   margin-top: 20px;
+  font-weight: bold;
 }
 #sightings-h2{
   margin-top: 20px;
@@ -73,7 +74,7 @@ main {
   align-items: flex-end;
 }
 
-#add-sighting-form {
+.add-sighting-form {
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -100,4 +101,31 @@ fa-sign-out-alt {
   background-color: #bfffd9;
   border-color: #bfffd9;
   color: black;
+}
+
+.show-bird {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#bird-summary {
+  margin: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.bolded {
+  font-weight: bold;
+}
+
+.card-button {
+  width: 70%;
+}
+
+.delete-button {
+  background-color: rgb(255, 104, 104);
+  border-color: rgb(255, 104, 104);
+  color: white;
 }

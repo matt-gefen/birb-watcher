@@ -23,12 +23,12 @@
       <div class="card text-center">
         <div id='sighting-header' class="card-header">
             <form action='/profiles/<%=profile._id%>/<%=sighting._id%>/<%=bird._id%>/?_method=DELETE' method='post'>
-              <button type="submit">X</button>
+              <button class='delete-button' type="submit">X</button>
             </form>
         </div>
         <div class="card-body">
           <h5 class="card-title"><%= bird.commonName %> </h5>
-          <a href="/birbs/<%=bird.speciesCode%>" class="btn btn-primary">Details</a>
+          <a href="/birbs/<%=bird.speciesCode%>"><button class='submit-button card-button'>Details</button></a>
         </div>
         <div class="card-footer text-muted">
         </div>
@@ -41,7 +41,7 @@
   <form action='/profiles/<%=profile._id%>/<%=sighting._id%>' method='post'>
     <label>
       Add Bird Sighted:
-      <select class="js-example-basic-single" name='bird'>
+      <select class="js-example-basic-single add-sighting-form" name='bird'>
         <% usSpecies.forEach((species) => { %> 
           <option value="<%=species.speciesCode%>"><%=species.comName%></option>
         <% }) %> 
@@ -50,7 +50,7 @@
     <button class='submit-button' type="submit">Add Birds</button>
   </form>
   <form action='/profiles/<%=profile._id%>/<%=sighting._id%>?_method=DELETE' method='post'>
-    <button class='submit-button' type="submit">Delete Sighting</button>
+    <button class='delete-button' type="submit">Delete Sighting</button>
   </form>
 </main>
 
