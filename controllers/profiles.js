@@ -21,17 +21,28 @@ function index(req, res) {
   })
 }
 
+function getDefaultDate() {
+  let defaultDate = new Date()
+  let defaultMonth = defaultDate.getUTCMonth()
+  let defaultDay = defaultDate.getUTCDate()
+  let defaultYear = defaultDate.getUTCFullYear()
+  defaultDate = `${defaultYear}-${defaultMonth + 1}-${defaultDay}`
+  return defaultDate
+}
+
 async function show(req,res) {
   try {
     const profile = await Profile.findById(req.params.id)
     const self = await Profile.findById(req.user.profile._id)
     const isSelf = await self._id.equals(profile._id)
+    let defaultDate = getDefaultDate()
     res.render(`profiles/show`,{
         profile,
         title: `${profile.name}'s Profile`,
         states,
         usSpecies,
-        isSelf
+        isSelf,
+        defaultDate
         },
       )
   } catch (error) {
@@ -51,7 +62,7 @@ async function showSighting(req,res) {
         title: 'Sighting Details',
         isSelf,
         sighting,
-        usSpecies
+        usSpecies,
         },
       )
   } catch (error) {

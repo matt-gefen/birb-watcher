@@ -15,7 +15,7 @@
     <form action="/reviews/<%=profile._id%>/<%=sighting._id%>?_method=PATCH" method='POST'>
       <label>
         Date:
-        <input type="date" name='date' value='<%= sighting.date%>'>
+        <input type="date" name='date' value='<%= sighting.date.getUTCFullYear() %>-<%= sighting.date.getUTCMonth() + 1%>-<%= sighting.date.getUTCDate() %>'>
       </label><br>
       <label>
         City:
