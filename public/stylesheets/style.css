@@ -2,7 +2,7 @@
 html {
   box-sizing: border-box;
   min-height: 100%;
-  background-color: #5E4AE3;
+  background-color: #fae1dd;
 }
 
 /* The Universal Selector */
@@ -22,7 +22,7 @@ html {
 
 body {
   min-height: 100%;
-  background-color: #16E0BD;
+  background-color: #fae1dd;
   /* Use a system font, if none are available use an available sans-sarif font */
   font-family: 'Exo 2', sans-serif;
   margin: 0;
@@ -31,7 +31,7 @@ body {
 nav {
   font-family: 'Cabin', sans-serif;
   height: 60px;
-  background-color: #BBB6DF;
+  background-color: #ffb4a3;
   font-size: 1.6rem;
   display: flex;
   align-items: center;
@@ -40,10 +40,10 @@ nav {
 }
 
 main {
-  color: white;
+  color: black;
   /* height: 100%; */
   font-family: 'Cabin', sans-serif;
-  background-color: #5E4AE3;
+  background-color: #fae1dd;
   display: flex;
   gap: 10px;
   align-items: center;
@@ -81,13 +81,13 @@ main {
 }
 fa-sign-out-alt {
   color: black;
-  background-color: #5E4AE3 ;
+  background-color: #fae1dd  ;
 }
 
 .nav-button {
-  background-color:#5E4AE3;
-  border-color:#5E4AE3;
-  color: white;
+  background-color:#fae1dd;
+  border-color:#fae1dd;
+  color: black;
   border-radius: 25px;
 }
 
