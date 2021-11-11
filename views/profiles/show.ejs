@@ -41,7 +41,7 @@
         Bird Species:
         <select class="js-example-basic-single" name='bird'>
           <% usSpecies.forEach((species) => { %> 
-            <option value="<%=species.speciesCode%>"><%=species.comName%></option>
+            <option value="<%=species.speciesCode%>,<%=species.comName%>"><%=species.comName%></option>
           <% }) %> 
         </select>
       </label><br>

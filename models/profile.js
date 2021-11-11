@@ -5,10 +5,7 @@ const Schema = mongoose.Schema
 const birdSchema = new Schema(
   {  
     commonName: String,
-    speciesName: String,
     speciesCode: String,
-    familyComName: String,
-    cornellLink: String,
   }
 
 )
