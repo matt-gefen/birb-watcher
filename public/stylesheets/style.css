@@ -41,14 +41,14 @@ nav {
 
 main {
   color: black;
-  /* height: 100%; */
+  height: 100vh;
   font-family: 'Cabin', sans-serif;
   background-color: #fae1dd;
   display: flex;
   gap: 10px;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .title {
@@ -98,6 +98,7 @@ fa-sign-out-alt {
 }
 
 .submit-button {
+  padding: 5px;
   background-color: #bfffd9;
   border-color: #bfffd9;
   color: black;
@@ -130,6 +131,33 @@ fa-sign-out-alt {
   color: white;
 }
 
+button:hover {
+  background-color: white;
+  border-color: white;
+  color: black;
+}
+
 p.profile-name {
   text-align: center;
+}
+
+#which-birb {
+  font-weight: bold;
+  margin: 10px;
+}
+
+.egg {
+  color: black;
+}
+
+.card-title {
+  font-size: 20px;
+}
+
+.card-text {
+  font-size: 15px;
+}
+
+.date-footer {
+  font-size: 13px;
 }
