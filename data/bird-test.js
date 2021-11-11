@@ -125,3 +125,12 @@ const webUrl = 'https://ebird.org/species/wfwduc1'
 //     console.log(error)
 //   }
 // }
+
+// async function photoGrab() {
+//   let commonName = 'White-faced Whistling-Duck'
+//   let photoUrl = `https://www.flickr.com/services/rest/?api_key=661b763e87f933ea2e1d031f4a43acb1&tags=${commonName}h&method=flickr.photos.search&sort=relevance`
+//   let response = await axios.get(photoUrl)
+//   console.log(response.data)
+// }
+
+// photoGrab()
