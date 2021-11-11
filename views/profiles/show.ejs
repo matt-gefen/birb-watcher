@@ -10,12 +10,7 @@
 
 <main>
   <% if (isSelf) { %>
-    <h1 class='title'>Your Sightings</h1>
-  <% } else { %>
-  <h1><%= profile.name%>'s Sightings</h1>
-  <% } %> 
-  <% if (isSelf) { %>
-    <h2>Add Sighting</h2>
+    <h1 class='title'>Add Sighting</h1>
     <form id='add-sighting-form' action="/profiles/<%=profile._id%>" method='POST'>
       <label>
         Date:
@@ -45,11 +40,14 @@
           <% }) %> 
         </select>
       </label><br>
-      <button>Add Sighting</button>
+      <button class='submit-button'>Add Sighting</button>
     </form>
   <% } %>
-
-<h2 id='sightings-h2'>Sightings</h2>
+  <% if (isSelf) { %>
+    <h1 class='title'>Your Sightings</h1>
+  <% } else { %>
+  <h1 class='title'><%= profile.name%>'s Sightings</h1>
+  <% } %> 
 <% profile.sightings.sort((a,b) => {return b.date - a.date}) %>
 <% profile.sightings.forEach(sighting => { %>
   <div class="card text-center">

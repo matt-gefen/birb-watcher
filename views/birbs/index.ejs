@@ -9,14 +9,15 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1>Search for Birbs!</h1>
-  <form action="/birbs" method="post">
+
+  <h1 class='title'>Search for Birbs!</h1>
+  <form id='add-sighting-form' action="/birbs" method="post">
     <select class="js-example-basic-single" name='bird'>
       <% usSpecies.forEach((species) => { %> 
         <option value="<%=species.speciesCode%>"><%=species.comName%></option>
       <% }) %> 
     </select><br>
-    <button type="submit">View Bird Details</button>
+    <button class='submit-button' type="submit">View Bird Details</button>
   </form>
 
 </main>

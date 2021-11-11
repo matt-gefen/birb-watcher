@@ -95,3 +95,9 @@ fa-sign-out-alt {
   margin-left: 10px;
   margin-right: 10px;
 }
+
+.submit-button {
+  background-color: #bfffd9;
+  border-color: #bfffd9;
+  color: black;
+}

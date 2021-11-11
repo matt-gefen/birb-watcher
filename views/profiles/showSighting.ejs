@@ -15,7 +15,7 @@
   <h2>Location: <%= sighting.city %>, <%= sighting.state%> </h2>
   <h3>Notes: <%= sighting.notes %></h3>
   <% if (isSelf) { %>
-    <a href="/profiles/<%=profile._id%>/<%=sighting._id%>/edit"><button type="submit">Edit Details</button></a>   
+    <a href="/profiles/<%=profile._id%>/<%=sighting._id%>/edit"><button class='submit-button' type="submit">Edit Details</button></a>   
   <% } %>
   <h1>Birds Sighted:</h1>
   <% if (sighting.birds.length) { %>
@@ -47,10 +47,10 @@
         <% }) %> 
       </select>
     </label><br>
-    <button type="submit">Add Birds</button>
+    <button class='submit-button' type="submit">Add Birds</button>
   </form>
   <form action='/profiles/<%=profile._id%>/<%=sighting._id%>?_method=DELETE' method='post'>
-    <button type="submit">Delete Sighting</button>
+    <button class='submit-button' type="submit">Delete Sighting</button>
   </form>
 </main>
 
