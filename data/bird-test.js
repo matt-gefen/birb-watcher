@@ -4,8 +4,15 @@
 import axios from 'axios'
 import fs from 'fs'
 import { usBirdSpeciesCodes } from './usBirds.js'
+import { wrapper } from 'axios-cookiejar-support'
+import { CookieJar } from 'tough-cookie'
+import cheerio from 'cheerio'
+
+const jar = new CookieJar();
+const client = wrapper(axios.create({ jar }));
 
 const apiUrl = 'https://api.ebird.org/v2/ref/taxonomy/ebird?fmt=json&species=wfwduc1'
+const webUrl = 'https://ebird.org/species/wfwduc1'
 
 // function usBirds() {
 
@@ -99,6 +106,21 @@ const apiUrl = 'https://api.ebird.org/v2/ref/taxonomy/ebird?fmt=json&species=wfw
 //       speciesName: body.sciName,
 //     }
 //     return bird
+//   } catch(error) {
+//     console.log(error)
+//   }
+// }
+
+// import { wrapper } from 'axios-cookiejar-support'
+// import { CookieJar } from 'tough-cookie'
+// import cheerio from 'cheerio'
+
+// async function fetchHtml() {
+//   try {
+//     let response = await client.get(webUrl);
+//     const $ = cheerio.load(response.data)
+//     let data = []
+//     return $('p[class=u-stack-sm]').text()
 //   } catch(error) {
 //     console.log(error)
 //   }
