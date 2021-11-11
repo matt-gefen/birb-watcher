@@ -95,7 +95,9 @@ async function createSighting(req, res) {
   try {
     const profile = await Profile.findById(req.params.id)
     let dateSighted = new Date(req.body.date)
+    console.log(dateSighted)
     req.body.date = dateSighted.toUTCString()
+    console.log(req.body.date)
     req.body.birds = []
     const bird = await getBird(req.body.bird)
     req.body.birds.push(bird)

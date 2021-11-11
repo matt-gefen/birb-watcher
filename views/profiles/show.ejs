@@ -10,7 +10,7 @@
 
 <main>
   <% if (isSelf) { %>
-    <h1 id='show-title'>Your Sightings</h1>
+    <h1 class='title'>Your Sightings</h1>
   <% } else { %>
   <h1><%= profile.name%>'s Sightings</h1>
   <% } %> 
@@ -45,11 +45,11 @@
           <% }) %> 
         </select>
       </label><br>
-      <button>Add Sightings</button>
+      <button>Add Sighting</button>
     </form>
   <% } %>
 
-<h2>Sightings</h2>
+<h2 id='sightings-h2'>Sightings</h2>
 <% profile.sightings.sort((a,b) => {return b.date - a.date}) %>
 <% profile.sightings.forEach(sighting => { %>
   <div class="card text-center">
@@ -69,7 +69,7 @@
       <a href="/profiles/<%=profile._id%>/<%=sighting._id%>" class="btn btn-primary">Details</a>
     </div>
     <div class="card-footer text-muted">
-      <%= sighting.date.toLocaleDateString() %>
+      <%= sighting.date.getUTCMonth() + 1%>/<%= sighting.date.getUTCDate() %>/<%= sighting.date.getUTCFullYear() %>
     </div>
   </div>
 <% }) %> 

@@ -51,7 +51,10 @@ main {
   flex-direction: column;
 }
 
-#show-title {
+.title {
+  margin-top: 20px;
+}
+#sightings-h2{
   margin-top: 20px;
 }
 
@@ -75,4 +78,20 @@ main {
   flex-direction: column;
   gap: 5px;
   font-size: 14px;
+}
+fa-sign-out-alt {
+  color: black;
+  background-color: #5E4AE3 ;
+}
+
+.nav-button {
+  background-color:#5E4AE3;
+  border-color:#5E4AE3;
+  color: white;
+  border-radius: 25px;
+}
+
+.nav-icon {
+  margin-left: 10px;
+  margin-right: 10px;
 }

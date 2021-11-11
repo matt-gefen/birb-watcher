@@ -5,18 +5,30 @@
 <body>
   <nav>
     <% if (user) { %>
-      <a href="/profiles/<%=user.profile.id%>">
-        <button type="submit">My Sightings</button>
+      <a class='nav-icon' href="/profiles/<%=user.profile.id%>">
+        <span style="color: #5E4AE3;">
+          <i class="fas fa-book-open fa-2x"></i>
+        </span>
+
       </a>
-      <a href="/profiles">
-        <button type="submit">Watchers</button>
+      <a class='nav-icon' href="/profiles">
+        <span style="color: #5E4AE3;">
+          <i class="fas fa-binoculars fa-2x"></i>
+        </span>
       </a>
-      <a href="/birbs">
-        <button type="submit">Birbs</button>
+
+      <a class='nav-icon' href="/birbs">
+        <span style="color: #5E4AE3;">
+          <i class="fas fa-crow fa-2x"></i>
+        </span>
       </a>
-      <a href="/auth/logout">
-        <button type="submit">Logout</button>
+
+      <a class='nav-icon' href="/auth/logout">
+        <span style="color: #5E4AE3;">
+          <i class="fas fa-sign-out-alt fa-2x"></i>
+        </span>
       </a>
+
     <% } else { %>
       <a href="/auth/google" class="siwg-link">
         <button type="submit" class="siwg">
