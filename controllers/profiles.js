@@ -1,8 +1,8 @@
 import {Profile} from "../models/profile.js"
 import {states} from "../data/states.js"
 import { usBirdSpeciesCodes } from "../data/usBirds.js"
-import axios from 'axios'
-import fs from 'fs'
+// import axios from 'axios'
+// import fs from 'fs'
 import {birdData} from "../data/birbdata.js"
 
 const usSpecies = birdData
@@ -45,7 +45,7 @@ async function showSighting(req,res) {
   const profile = await Profile.findById(req.params.id)
   const self = await Profile.findById(req.user.profile._id)
   const isSelf = await self._id.equals(profile._id)
-  const sighting = await profile.sightings.find(sight => String(sight._id) === req.params.sightingId)
+  const sighting = await profile.sightings.id(req.params.sightingId)
         res.render(`profiles/showSighting`,{
         profile,
         title: 'Sighting Details',
@@ -86,8 +86,7 @@ async function createSighting(req, res) {
 function editSighting(req, res) {
   Profile.findById(req.params.id)
   .then(profile => {
-    
-    const sighting = profile.sightings.find(sight => (String(sight._id) === req.params.sightingId))
+    const sighting = profile.sightings.id(req.params.sightingId)
     res.render(`profiles/editSighting`, {
       profile,
       sighting,
@@ -104,17 +103,15 @@ function editSighting(req, res) {
 function updateSighting(req, res) {
   Profile.findById(req.params.id)
   .then(profile => {
-    const sighting = profile.sightings.find(sighting => req.params.sightingId === String(sighting._id))
-    const sightingIndx = profile.sightings.findIndex(sighting => req.params.sightingId === String(sighting._id))
-  
+    const sighting = profile.sightings.id(req.params.sightingId)
     const birds = sighting.birds
     let dateSighted = new Date(req.body.date)
     req.body.birds = birds
     req.body.date = dateSighted.toUTCString()
-    profile.sightings[sightingIndx].date = req.body.date
-    profile.sightings[sightingIndx].city = req.body.city
-    profile.sightings[sightingIndx].notes = req.body.notes
-    profile.sightings[sightingIndx].birds = req.body.birds
+    sighting.date = req.body.date
+    sighting.city = req.body.city
+    sighting.notes = req.body.notes
+    sighting.birds = req.body.birds
 
     profile.save()
 
