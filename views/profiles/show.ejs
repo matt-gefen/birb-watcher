@@ -54,9 +54,11 @@
 <% profile.sightings.forEach(sighting => { %>
   <div class="card text-center">
     <div id='sighting-header' class="card-header">
+      <% if (isSelf) { %>
       <form id='sighting-delete' action='/profiles/<%=profile._id%>/<%=sighting._id%>?_method=DELETE' method='post'>
         <button type="submit">X</button>
       </form>
+      <% } %> 
     </div>
     <div class="card-body">
       <h5 class="card-title"><%= sighting.city %>, <%= sighting.state %> </h5>

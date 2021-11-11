@@ -5,14 +5,14 @@ import { wrapper } from 'axios-cookiejar-support'
 import { CookieJar } from 'tough-cookie'
 import cheerio from 'cheerio'
 
-const jar = new CookieJar();
-const client = wrapper(axios.create({ jar }));
+const jar = new CookieJar()
+const client = wrapper(axios.create({ jar }))
 
 const usSpecies = birdData
 
 async function fetchHtml(webUrl) {
   try {
-    let response = await client.get(webUrl);
+    let response = await client.get(webUrl)
     const $ = cheerio.load(response.data)
     let data = []
     data.push($('p[class=u-stack-sm]').text())
