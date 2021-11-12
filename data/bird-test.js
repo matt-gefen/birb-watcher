@@ -8,8 +8,8 @@ import { wrapper } from 'axios-cookiejar-support'
 import { CookieJar } from 'tough-cookie'
 import cheerio from 'cheerio'
 
-const jar = new CookieJar();
-const client = wrapper(axios.create({ jar }));
+// const jar = new CookieJar();
+// const client = wrapper(axios.create({ jar }));
 
 const apiUrl = 'https://api.ebird.org/v2/ref/taxonomy/ebird?fmt=json&species=wfwduc1'
 const webUrl = 'https://ebird.org/species/wfwduc1'
@@ -134,3 +134,22 @@ const webUrl = 'https://ebird.org/species/wfwduc1'
 // }
 
 // photoGrab()
+import {birdData} from "../data/birbdata.js"
+const jar = new CookieJar()
+const client = wrapper(axios.create({ jar }))
+
+const usSpecies = birdData
+
+async function fetchHtml(webUrl) {
+  try {
+    let response = await client.get(webUrl)
+    const $ = cheerio.load(response.data)
+    let data = []
+    data.push($('img').attr().src)
+    return data
+  } catch(error) {
+    console.log(error)
+  }
+}
+
+fetchHtml(webUrl)

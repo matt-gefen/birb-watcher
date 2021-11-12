@@ -16,6 +16,7 @@ async function fetchHtml(webUrl) {
     const $ = cheerio.load(response.data)
     let data = []
     data.push($('p[class=u-stack-sm]').text())
+    data.push($('img').attr().src)
     return data
   } catch(error) {
     console.log(error)
@@ -42,15 +43,17 @@ async function getBird(speciesCode) {
     const response = await axios.get(apiUrl)
     const body = response.data[0]
     const cornellLink = `https://ebird.org/species/${body.speciesCode}`
-    const summaryArr = await fetchHtml(cornellLink)
-    const summary = summaryArr[0]
+    const birdArr = await fetchHtml(cornellLink)
+    const summary = birdArr[0]
+    const img = birdArr[1]
     const bird = {
       commonName: body.comName,
       speciesName: body.sciName,
       speciesCode: body.speciesCode,
       familyComName: body.familyComName,
       cornellLink,
-      summary
+      summary,
+      img
     }
     return bird
   } catch(error) {
@@ -72,7 +75,6 @@ async function findBird(req, res) {
 async function show(req, res) {
   try {
     const bird = await getBird(req.params.id)
-    console.log(bird)
     res.render('birbs/show', {
       title: `${bird.commonName}`,
       bird
