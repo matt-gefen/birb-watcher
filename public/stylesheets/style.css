@@ -167,3 +167,10 @@ p.profile-name {
 .date-footer {
   font-size: 13px;
 }
+
+@media only screen and (min-width: 600px) {
+  .card {
+    color: black;
+    width: 40%;
+  }
+}
