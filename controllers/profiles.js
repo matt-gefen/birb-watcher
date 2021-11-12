@@ -127,7 +127,7 @@ function updateSighting(req, res) {
     profile.save()
 
     .then(() => {
-      res.redirect(`/profiles/${req.params.id}`)
+      res.redirect(`/profiles/${req.params.id}/${req.params.sightingId}`)
     })
   })
   .catch(error => {

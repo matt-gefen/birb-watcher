@@ -104,6 +104,10 @@ fa-sign-out-alt {
   color: black;
 }
 
+.edit-details {
+  font-size: 14px;
+}
+
 .show-bird {
   display: flex;
   flex-direction: column;
