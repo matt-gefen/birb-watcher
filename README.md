@@ -46,7 +46,8 @@ Node Packages that made this application possible:
 - axios-cookie-jar-support  
 
 Data sourced from [ebird public api](https://documenter.getpostman.com/view/664302/S1ENwy59?version=latest#55bd1b26-6951-4a88-943a-d3a8aa1157dd)  
-Summary and images scraped from [ebird public site](https://ebird.org/home)
+Summary and images scraped from [ebird public site](https://ebird.org/home)  
+Icons from [FontAwesome](fontawesome.com/)
 
 ## Next Steps + Future Improvements
 - Google Maps API integration for locations
