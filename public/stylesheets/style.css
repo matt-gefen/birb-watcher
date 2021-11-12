@@ -172,4 +172,10 @@ p.profile-name {
     color: black;
     width: 40%;
   }
+  #bird-summary {
+    margin: 10px;
+    font-size: 16px;
+    text-align: center;
+    width: 70%;
+  }
 }
