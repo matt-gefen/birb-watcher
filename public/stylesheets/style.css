@@ -77,9 +77,15 @@ main {
 .add-sighting-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
   font-size: 14px;
 }
+.add-bird-button {
+  width: 45%;
+}
+
 fa-sign-out-alt {
   color: black;
   background-color: #fae1dd  ;

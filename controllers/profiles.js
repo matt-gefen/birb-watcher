@@ -154,7 +154,20 @@ function deleteSighting(req, res) {
 
 async function createBird(req, res) {
   try {
+    console.log(req.body)
     console.log(req.params)
+    let bird = usSpecies.find(bird => bird.speciesCode === req.body.bird)
+    console.log(bird)
+    bird = {
+      commonName: bird.comName,
+      speciesCode: bird.speciesCode
+    }
+    console.log(bird)
+    const profile = await Profile.findById(req.params.id)
+    const sighting = await profile.sightings.id(req.params.sightingId)
+    sighting.birds.push(bird)
+    profile.save()
+    res.redirect(`/profiles/${profile._id}/${sighting._id}`)
   } catch(error) {
     console.log(error)
   }

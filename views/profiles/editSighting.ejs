@@ -6,13 +6,12 @@
   crossorigin="anonymous"
 >
 <link rel="stylesheet" href="/stylesheets/showSighting.css">
+<%- include('../partials/search') %>
 <%- include('../partials/nav') %>
 
 <main>
   <h1><%= title %></h1>
-    <h2>Add Sighting</h2>
-    <form action="/profiles/<%=profile._id%>/<%=sighting._id%>?_method=PATCH" method='POST'>
-    <form action="/reviews/<%=profile._id%>/<%=sighting._id%>?_method=PATCH" method='POST'>
+    <form class='add-sighting-form' action="/reviews/<%=profile._id%>/<%=sighting._id%>?_method=PATCH" method='POST'>
       <label>
         Date:
         <input type="date" name='date' value='<%= sighting.date.getUTCFullYear() %>-<%= sighting.date.getUTCMonth() + 1%>-<%= sighting.date.getUTCDate() %>'>
@@ -23,7 +22,7 @@
       </label><br>
       <label>
         State:
-        <select name="state">
+        <select class="js-example-basic-single" name="state">
           <option value='<%=sighting.state %>'><%=sighting.state %></option>
           <% states.forEach((state) => { %> 
             <option value="<%=state%>"><%=state%></option>
