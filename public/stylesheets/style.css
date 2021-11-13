@@ -60,12 +60,13 @@ main {
 
 #sighting-header {
   display: flex;
-  align-items: flex-start;
+  /* align-items: ; */
+  justify-content: right;
 }
 
 #sighting-delete {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 
 .add-sighting-form {
@@ -130,8 +131,17 @@ fa-sign-out-alt {
 }
 
 .delete-button {
-  background-color: rgb(255, 104, 104);
-  border-color: rgb(255, 104, 104);
+  background-color: transparent;
+  border-color: transparent;
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 25px;
+}
+
+.delete-button:hover {
+  background-color: transparent;
+  border-color: transparent;
   color: white;
 }
 
@@ -154,16 +164,31 @@ p.profile-name {
   color: black;
 }
 
+.card {
+  border: 4px #ffb4a3 solid !important;
+}
+
 .card-title {
   font-size: 20px;
 }
 
-.card-text {
-  font-size: 15px;
+.card-body {
+  background-color: #fae1dd !important ;
 }
 
-.date-footer {
+.card-text {
+  font-size: 15px;
+  background-color: #fae1dd !important ;
+}
+
+.card-header {
+  background-color: #ffb4a3 !important ;
+}
+
+.card-footer {
   font-size: 13px;
+  color: black !important;
+  background-color: #ffb4a3 !important ;
 }
 
 .bird-image {
@@ -171,6 +196,24 @@ p.profile-name {
   width: auto;
 }
 
+.bird-form {
+  display: flex;
+  align-items: flex-start;
+  justify-content: left;
+  flex-direction: column;
+  gap: 5px;
+  border: 4px #ffb4a3 solid;
+  /* background-color: rgb(255, 225, 225); */
+  padding: 15px;
+}
+.notes-label {
+  display: flex;
+  gap: 2px;
+}
+
+textarea:focus, input:focus {
+  outline: 2px solid #ffb4a3 ;
+}
 @media only screen and (min-width: 600px) {
   .card {
     color: black;

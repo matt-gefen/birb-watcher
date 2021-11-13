@@ -11,37 +11,39 @@
 <main>
   <% if (isSelf) { %>
     <h1 class='title'>Add Sighting</h1>
-    <form class='add-sighting-form' action="/profiles/<%=profile._id%>" method='POST'>
-      <label>
-        Date:
-        <input type="date" name='date' value='<%=defaultDate%>'>
-      </label><br>
-      <label>
-        City:
-        <input type="text" name='city'>
-      </label><br>
-      <label>
-        State:
-        <select class="js-example-basic-single" name="state">
-          <% states.forEach((state) => { %> 
-            <option value="<%=state%>"><%=state%></option>
-          <% }) %> 
-        </select>
-      </label><br>
-      <label>
-        Notes: <br>
-        <textarea name="notes" placeholder="Anything Notable?"></textarea>
-      </label><br>
-      <label>
-        Bird Species:
-        <select class="js-example-basic-single" name='bird'>
-          <% usSpecies.forEach((species) => { %> 
-            <option value="<%=species.speciesCode%>,<%=species.comName%>"><%=species.comName%></option>
-          <% }) %> 
-        </select>
-      </label><br>
-      <button class='submit-button'>Add Sighting</button>
-    </form>
+      <form class='add-sighting-form' action="/profiles/<%=profile._id%>" method='POST'>
+        <div class='bird-form'>
+        <label>
+          Date:
+          <input type="date" name='date' value='<%=defaultDate%>'>
+        </label><br>
+        <label>
+          City:
+          <input type="text" name='city'>
+        </label><br>
+        <label>
+          State:
+          <select class="js-example-basic-single" name="state">
+            <% states.forEach((state) => { %> 
+              <option value="<%=state%>"><%=state%></option>
+            <% }) %> 
+          </select>
+        </label><br>
+        <label class='notes-label'>
+          Notes:
+          <textarea name="notes" placeholder="Anything Notable?"></textarea>
+        </label><br>
+        <label>
+          Bird Species:
+          <select class="js-example-basic-single" name='bird'>
+            <% usSpecies.forEach((species) => { %> 
+              <option value="<%=species.speciesCode%>,<%=species.comName%>"><%=species.comName%></option>
+            <% }) %> 
+          </select>
+        </label><br>
+        <button class='submit-button'>Add Sighting</button>
+    </div>
+  </form>  
   <% } %>
   <% if (isSelf) { %>
     <h1 class='title'>Your Sightings</h1>
