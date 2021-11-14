@@ -76,9 +76,30 @@ main {
   justify-content: center;
   gap: 5px;
   font-size: 14px;
+  width: 100%
 }
+.add-bird-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 14px;
+  width: 100%;
+  margin-top: 20px;
+}
+
 .add-bird-button {
-  width: 45%;
+  /* width: 45%; */
+  display: inline;
+}
+.add-bird-label {
+  /* width: 45%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* margin-right: 5px; */
+  /* gap:5px; */
 }
 
 fa-sign-out-alt {
@@ -208,6 +229,7 @@ p.profile-name {
   border: 4px #ffb4a3 solid;
   /* background-color: rgb(255, 225, 225); */
   padding: 15px;
+  width: 75%;
 }
 
 /* .notes-label {
@@ -215,8 +237,9 @@ p.profile-name {
   gap: 2px;
 } */
 
-.label {
-  /* width: 30px; */
+.delete-sighting{
+  font-size: 25px;
+  margin-top: 20px;
 }
 
 textarea:focus, input:focus {
@@ -232,5 +255,9 @@ textarea:focus, input:focus {
     font-size: 16px;
     text-align: center;
     width: 70%;
+  }
+
+  .bird-form {
+    width: 40%;
   }
 }
