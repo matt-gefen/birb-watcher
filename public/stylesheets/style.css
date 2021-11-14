@@ -29,8 +29,22 @@ nav {
   font-size: 1.6rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  /* gap: 20px; */
+}
+.left-nav {
+  display: flex;
+  padding-left: 5px;
+  flex-direction: row;
   gap: 20px;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+.nav-title {
+  display:none;
+  color: white;
+  font-weight: bold;
+  justify-self: flex-start;
 }
 
 main {
@@ -45,10 +59,53 @@ main {
   justify-content: flex-start;
 }
 
-.title {
-  margin-top: 20px;
-  font-weight: bold;
+.title-container {
+  width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffb4a3;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 0.5rem;
 }
+.main-title-container {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: #ffb4a3;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 0.5rem;
+}
+
+.page-intro {
+  font-size: 16px;
+  /* color: white; */
+}
+.secondary-title-container {
+  margin-top: 30px;
+}
+.title {
+  /* margin-top: 20px; */
+  font-weight: bold;
+  color: white;
+}
+
+.sightings-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 90%;
+  text-align: left;
+}
+
+#add-sighting-container {
+  width: 100%;
+}
+
 #sightings-h2{
   margin-top: 20px;
 }
@@ -58,10 +115,14 @@ main {
   width: 75%;
 }
 
+.profile-card {
+  width: 90%;
+}
+
 #sighting-header {
   display: flex;
   /* align-items: ; */
-  justify-content: right;
+  justify-content: space-between;
 }
 
 #sighting-delete {
@@ -157,7 +218,7 @@ fa-sign-out-alt {
 .delete-button {
   background-color: transparent;
   border-color: transparent;
-  color: black;
+  color: white;
   font-size: 12px;
   font-weight: bold;
   border-radius: 25px;
@@ -205,6 +266,11 @@ p.profile-name {
   background-color: #fae1dd !important ;
 }
 
+.card-header-text {
+  font-size: 15px;
+  color: white !important;
+}
+
 .card-header {
   background-color: #ffb4a3 !important ;
 }
@@ -232,24 +298,45 @@ p.profile-name {
   width: 75%;
 }
 
-/* .notes-label {
-  display: flex;
-  gap: 2px;
-} */
+#show-form {
+  /* display: inline; */
+  background-color: transparent;
+  border: 0;
+  color: white;
+}
 
 .delete-sighting{
   font-size: 25px;
   margin-top: 20px;
+  color: black
 }
 
 textarea:focus, input:focus {
   outline: 2px solid #ffb4a3 ;
 }
 @media only screen and (min-width: 600px) {
-  .card {
-    color: black;
+  .title-container {
     width: 40%;
   }
+
+  .main-title-container {
+    width: 75%;
+  }
+  .col {
+    width: 75%;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .card {
+    /* color: black; */
+    width: 40%;
+  }
+
+  .profile-card {
+    width: 75%;
+  }
+
   #bird-summary {
     margin: 10px;
     font-size: 16px;
@@ -259,5 +346,9 @@ textarea:focus, input:focus {
 
   .bird-form {
     width: 40%;
+  }
+
+  .nav-title {
+    display:flex;
   }
 }

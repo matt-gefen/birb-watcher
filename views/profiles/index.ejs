@@ -8,7 +8,10 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1 class='title'>All Watchers!</h1>
+  <div class= 'main-title-container'>
+    <h1 class='title'>All Watchers!</h1>
+    <p class='page-intro'>View the profiles of all BirbWatchers</p>
+  </div>
   <div class="container py-5 px-3">
     <div 
       class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g1 px-4"
@@ -16,7 +19,7 @@
       <% profiles.forEach(profile => { %>
         <div class="col">
           <a class="text-decoration-none" href="/profiles/<%= profile._id %>">
-            <div class="card mb-4 shadow-sm">
+            <div class="card profile-card mb-4 shadow-sm">
               <% if (profile.avatar) { %>
                 <img
                   class="card-img-top"
