@@ -41,18 +41,20 @@
   <% } %> 
   <% if (isSelf) { %>
   <form class ='add-sighting-form' action='/profiles/<%=profile._id%>/<%=sighting._id%>' method='post'>
-    <label>
-      Add Bird Sighted:
-      <select class="js-example-basic-single" name='bird'>
-        <% usSpecies.forEach((species) => { %> 
-          <option value="<%=species.speciesCode%>"><%=species.comName%></option>
-        <% }) %> 
-      </select>
-    </label><br>
-    <button class='submit-button add-bird-button' type="submit">Add Bird</button>
+    <div class='add-bird-form'>
+      <label class='add-bird-label'>
+        Add Bird Sighted:
+        <select class="js-example-basic-single" name='bird'>
+          <% usSpecies.forEach((species) => { %> 
+            <option value="<%=species.speciesCode%>"><%=species.comName%></option>
+          <% }) %> 
+        </select>
+      </label>
+      <button class='submit-button add-bird-button' type="submit">Add Bird</button>
+    </div>
   </form>
   <form action='/profiles/<%=profile._id%>/<%=sighting._id%>?_method=DELETE' method='post'>
-    <button class='delete-button' type="submit">Delete Sighting</button>
+    <button class='delete-button delete-sighting' type="submit">Delete Sighting</button>
   </form>
   <% }%>
 </main>
