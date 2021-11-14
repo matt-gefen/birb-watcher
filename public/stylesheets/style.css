@@ -76,6 +76,7 @@ main {
   justify-content: center;
   gap: 5px;
   font-size: 14px;
+  width: 100%
 }
 .add-bird-button {
   width: 45%;
@@ -208,6 +209,7 @@ p.profile-name {
   border: 4px #ffb4a3 solid;
   /* background-color: rgb(255, 225, 225); */
   padding: 15px;
+  width: 75%;
 }
 
 /* .notes-label {
@@ -232,5 +234,9 @@ textarea:focus, input:focus {
     font-size: 16px;
     text-align: center;
     width: 70%;
+  }
+
+  .bird-form {
+    width: 40%;
   }
 }
