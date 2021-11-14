@@ -45,10 +45,27 @@ main {
   justify-content: flex-start;
 }
 
-.title {
-  margin-top: 20px;
-  font-weight: bold;
+.title-container {
+  width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffb4a3;
+  padding: 10px;
+  gap: 10px;
+  margin-top: 10px;
 }
+
+.title {
+  /* margin-top: 20px; */
+  font-weight: bold;
+  color: white;
+}
+
+#add-sighting-container {
+  width: 100%;
+}
+
 #sightings-h2{
   margin-top: 20px;
 }
@@ -232,10 +249,12 @@ p.profile-name {
   width: 75%;
 }
 
-/* .notes-label {
-  display: flex;
-  gap: 2px;
-} */
+#show-form {
+  /* display: inline; */
+  background-color: transparent;
+  border: 0;
+  color: white;
+}
 
 .delete-sighting{
   font-size: 25px;

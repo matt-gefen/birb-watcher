@@ -6,11 +6,17 @@
   integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
   crossorigin="anonymous"
 >
+<script defer src="/scripts/forms.js" ></script>
 <%- include('../partials/nav') %>
 
 <main>
   <% if (isSelf) { %>
-    <h1 class='title'>Add Sighting</h1>
+    <div class='title-container'>
+      <div id='invisiblebox'></div>
+      <h1 class='title'>Add Sighting</h1>
+      <button id='show-form'>▶</button>
+    </div>
+      <div id='add-sighting-container' hidden>
       <form class='add-sighting-form' action="/profiles/<%=profile._id%>" method='POST'>
         <div class='bird-form'>
         <label>
@@ -44,6 +50,7 @@
         <button class='submit-button'>Add Sighting</button>
     </div>
   </form>  
+</div>
   <% } %>
   <% if (isSelf) { %>
     <h1 class='title'>Your Sightings</h1>
