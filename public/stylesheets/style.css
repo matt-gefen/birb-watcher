@@ -100,9 +100,12 @@ fa-sign-out-alt {
 
 .submit-button {
   padding: 5px;
-  background-color: #bfffd9;
-  border-color: #bfffd9;
-  color: black;
+  background-color: #6184D8;
+  border: 0;
+  box-shadow: transparent;
+  color: white;
+  font-size: 14px;
+  border-radius: 0.5rem;
 }
 
 .edit-details {
@@ -206,9 +209,14 @@ p.profile-name {
   /* background-color: rgb(255, 225, 225); */
   padding: 15px;
 }
-.notes-label {
+
+/* .notes-label {
   display: flex;
   gap: 2px;
+} */
+
+.label {
+  /* width: 30px; */
 }
 
 textarea:focus, input:focus {

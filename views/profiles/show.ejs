@@ -14,15 +14,15 @@
       <form class='add-sighting-form' action="/profiles/<%=profile._id%>" method='POST'>
         <div class='bird-form'>
         <label>
-          Date:
+          <span class='label'>Date:</span><br>
           <input type="date" name='date' value='<%=defaultDate%>'>
         </label><br>
         <label>
-          City:
+          City:<br>
           <input type="text" name='city'>
         </label><br>
         <label>
-          State:
+          <span class='label'>State:</span><br>
           <select class="js-example-basic-single" name="state">
             <% states.forEach((state) => { %> 
               <option value="<%=state%>"><%=state%></option>
@@ -30,11 +30,11 @@
           </select>
         </label><br>
         <label class='notes-label'>
-          Notes:
+          <span class='label'>Notes:</span><br>
           <textarea name="notes" placeholder="Anything Notable?"></textarea>
         </label><br>
         <label>
-          Bird Species:
+          <span class='label'>Bird Species:</span><br>
           <select class="js-example-basic-single" name='bird'>
             <% usSpecies.forEach((species) => { %> 
               <option value="<%=species.speciesCode%>,<%=species.comName%>"><%=species.comName%></option>
