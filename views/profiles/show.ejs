@@ -11,6 +11,10 @@
 
 <main>
   <% if (isSelf) { %>
+    <div class= 'main-title-container'>
+      <h1 class='title'>BirbLog</h1>
+      <p class='page-intro'>View your recorded Sightings or add new Sightings!</p>
+    </div>
     <div class='title-container'>
       <div id='invisiblebox'></div>
       <h1 class='title'>Add Sighting</h1>
@@ -69,6 +73,8 @@
 <% profile.sightings.forEach(sighting => { %>
   <div class="card text-center">
     <div id='sighting-header' class="card-header">
+      <p class= 'card-header-text'><%= sighting.city %>, <%= sighting.state %> - <%= sighting.date.getUTCMonth() + 1%>/<%= sighting.date.getUTCDate() %>/<%= sighting.date.getUTCFullYear() %></p>
+      <div></div>
       <% if (isSelf) { %>
       <form id='sighting-delete' action='/profiles/<%=profile._id%>/<%=sighting._id%>?_method=DELETE' method='post'>
         <button class='delete-button' type="submit">X</button>
@@ -76,17 +82,17 @@
       <% } %> 
     </div>
     <div class="card-body">
-      <h5 class="card-title"><%= sighting.city %>, <%= sighting.state %> </h5>
+      <h5 class="card-title"></h5>
       <p class="card-text">
         <% sighting.birds.forEach(bird => { %>
-          <%=bird.commonName%><br>
+          <a href='/birbs/<%=bird.speciesCode%>'><%=bird.commonName%></a><br>
         <% }) %> 
         </ul>
       </p>
-      <a href="/profiles/<%=profile._id%>/<%=sighting._id%>"><button class='submit-button card-button'>Details</button></a>
+      
     </div>
-    <div class="card-footer date-footer text-muted">
-      <%= sighting.date.getUTCMonth() + 1%>/<%= sighting.date.getUTCDate() %>/<%= sighting.date.getUTCFullYear() %>
+    <div class="card-footer date-footer">
+      <a href="/profiles/<%=profile._id%>/<%=sighting._id%>"><button class='submit-button card-button'>Sighting Details</button></a>
     </div>
   </div>
 <% }) %> 

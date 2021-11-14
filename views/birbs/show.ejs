@@ -8,12 +8,14 @@
 <%- include('../partials/nav') %>
 
 <main class='bird-show'>
-  <h1 class='title'><%=title%></h1>
+  <div class= 'main-title-container'>
+    <h1 class='title'><%=title%></h1>
+  </div>
   <img class='bird-image' src="<%=bird.img%>" alt="<%=title%>">
   <h2><span class='bolded'>Species Name: </span><%=bird.speciesName%></h2>
   <h2><span class='bolded'>Family: </span><%=bird.familyComName%></h2>
   <h5 id='bird-summary'><%=bird.summary%></h5>
-  <h3><a href="<%=bird.cornellLink%>">See More At EBird</a></h3>
+  <h3><a href="<%=bird.cornellLink%>">See More At eBird</a></h3>
 </main>
 
 <%- include('../partials/footer') %>

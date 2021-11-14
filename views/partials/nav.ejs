@@ -5,13 +5,13 @@
 <body>
   <nav>
     <% if (user) { %>
-        <h1 class='nav-title'>BirbWatcher</h1>
-        <div class='nav-icons'>
+      <div class='left-nav'>
+        <div><h1 class='nav-title'>BirbWatcher</h1></div>
+        <div>
           <a class='nav-icon' href="/profiles/<%=user.profile.id%>">
             <span style="color: white;">
               <i class="fas fa-book-open fa-2x"></i>
             </span>
-    
           </a>
           <a class='nav-icon' href="/profiles">
             <span style="color: white;">
@@ -24,15 +24,16 @@
               <i class="fas fa-crow fa-2x"></i>
             </span>
           </a>
-    
         </div>
-        <div>
-          <a class='nav-icon' href="/auth/logout">
-            <span style="color: white;">
-              <i class="fas fa-sign-out-alt fa-2x"></i>
-            </span>
-          </a>
-        </div>
+    </div>
+    <div></div>
+    <div>
+        <a class='nav-icon' href="/auth/logout">
+          <span style="color: white;">
+            <i class="fas fa-sign-out-alt fa-2x"></i>
+          </span>
+        </a>
+    </div>
     <% } else {%>
       <h1>BirbWatcher</h1>
       <%}%>
