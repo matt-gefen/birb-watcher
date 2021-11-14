@@ -29,8 +29,18 @@ nav {
   font-size: 1.6rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-between;
+  /* gap: 20px; */
+}
+.nav-icons {
+  display: flex;
+  justify-self: center;
+}
+.nav-title {
+  display:none;
+  color: white;
+  font-weight: bold;
+  justify-self: flex-start;
 }
 
 main {
@@ -52,10 +62,12 @@ main {
   justify-content: space-between;
   background-color: #ffb4a3;
   padding: 10px;
-  gap: 10px;
   margin-top: 10px;
+  border-radius: 0.5rem;
 }
-
+.secondary-title-container {
+  margin-top: 30px;
+}
 .title {
   /* margin-top: 20px; */
   font-weight: bold;
@@ -174,7 +186,7 @@ fa-sign-out-alt {
 .delete-button {
   background-color: transparent;
   border-color: transparent;
-  color: black;
+  color: white;
   font-size: 12px;
   font-weight: bold;
   border-radius: 25px;
@@ -265,8 +277,12 @@ textarea:focus, input:focus {
   outline: 2px solid #ffb4a3 ;
 }
 @media only screen and (min-width: 600px) {
+  .title-container {
+    width: 40%;
+  }
+  
   .card {
-    color: black;
+    /* color: black; */
     width: 40%;
   }
   #bird-summary {
@@ -278,5 +294,9 @@ textarea:focus, input:focus {
 
   .bird-form {
     width: 40%;
+  }
+
+  .nav-title {
+    display:flex;
   }
 }

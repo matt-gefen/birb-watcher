@@ -53,9 +53,17 @@
 </div>
   <% } %>
   <% if (isSelf) { %>
-    <h1 class='title'>Your Sightings</h1>
+    <div class='title-container secondary-title-container'>
+      <div></div>
+      <h1 class='title'>Your Sightings</h1>
+      <div></div>
+    </div>
   <% } else { %>
-  <h1 class='title'><%= profile.name%>'s Sightings</h1>
+    <div class='title-container secondary-title-container'>
+      <div></div>
+      <h1 class='title'><%= profile.name%>'s Sightings</h1>
+      <div></div>
+    </div>
   <% } %> 
 <% profile.sightings.sort((a,b) => {return b.date - a.date}) %>
 <% profile.sightings.forEach(sighting => { %>
