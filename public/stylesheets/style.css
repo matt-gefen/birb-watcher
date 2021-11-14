@@ -94,6 +94,14 @@ main {
   color: white;
 }
 
+.sightings-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 90%;
+  text-align: left;
+}
+
 #add-sighting-container {
   width: 100%;
 }
@@ -300,6 +308,7 @@ p.profile-name {
 .delete-sighting{
   font-size: 25px;
   margin-top: 20px;
+  color: black
 }
 
 textarea:focus, input:focus {

@@ -10,14 +10,20 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1 class='title'><%= title %>:</h1>
-  <h2>Date: <%=sighting.date.toDateString()%></h2>
-  <h2>Location: <%= sighting.city %>, <%= sighting.state%> </h2>
-  <h3>Notes: <%= sighting.notes %></h3>
+  <div class= 'main-title-container'>
+    <h1 class='title'><%=title%></h1>
+  </div>
+  <div class='sighting-details'>
+    <h2>Date: <%=sighting.date.toDateString()%></h2>
+    <h2>Location: <%= sighting.city %>, <%= sighting.state%> </h2>
+    <h3>Notes: <%= sighting.notes %></h3>
+  </div>
   <% if (isSelf) { %>
     <a href="/profiles/<%=profile._id%>/<%=sighting._id%>/edit"><button class='submit-button edit-details' type="submit">Edit Details</button></a>   
   <% } %>
-  <h1 class='title'>Birds Sighted:</h1>
+  <div class= 'title-container'>
+    <h1 class='title'>Birds Sighted:</h1>
+  </div>
   <% if (sighting.birds.length) { %>
     <% sighting.birds.forEach(bird => {  %> 
       <div class="card text-center">
@@ -30,9 +36,9 @@
         </div>
         <div class="card-body">
           <h5 class="card-title"><%= bird.commonName %> </h5>
-          <a href="/birbs/<%=bird.speciesCode%>"><button class='submit-button card-button'>Details</button></a>
         </div>
         <div class="card-footer text-muted">
+          <a href="/birbs/<%=bird.speciesCode%>"><button class='submit-button card-button'>Details</button></a>
         </div>
       </div>
     <% }) %> 
@@ -40,18 +46,16 @@
     <h3>No Birds Added</h3>
   <% } %> 
   <% if (isSelf) { %>
-  <form class ='add-sighting-form' action='/profiles/<%=profile._id%>/<%=sighting._id%>' method='post'>
-    <div class='add-bird-form'>
-      <label class='add-bird-label'>
-        Add Bird Sighted:
-        <select class="js-example-basic-single" name='bird'>
-          <% usSpecies.forEach((species) => { %> 
-            <option value="<%=species.speciesCode%>"><%=species.comName%></option>
-          <% }) %> 
-        </select>
-      </label>
-      <button class='submit-button add-bird-button' type="submit">Add Bird</button>
+    <div class= 'title-container'>
+      <h1 class='title'>Add Bird Sighted:</h1>
     </div>
+  <form class ='add-sighting-form' action='/profiles/<%=profile._id%>/<%=sighting._id%>' method='post'>
+      <select class="js-example-basic-single" name='bird'>
+        <% usSpecies.forEach((species) => { %> 
+          <option value="<%=species.speciesCode%>"><%=species.comName%></option>
+        <% }) %> 
+      </select>
+    <button class='submit-button add-bird-button' type="submit">Add Bird</button>
   </form>
   <form action='/profiles/<%=profile._id%>/<%=sighting._id%>?_method=DELETE' method='post'>
     <button class='delete-button delete-sighting' type="submit">Delete Sighting</button>
