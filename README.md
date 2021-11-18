@@ -19,22 +19,28 @@ Get outside and let the rest of us know what you find!
 
 ## Screenshots
 Login Page:  
-<img width="337" alt="Screen Shot 2021-11-11 at 10 39 20 PM" src="https://user-images.githubusercontent.com/29576093/141415847-7ed173cb-a0ae-4445-9364-d0d7c96a48be.png">  
+<img width="719" alt="Screen Shot 2021-11-17 at 7 46 51 PM" src="https://user-images.githubusercontent.com/29576093/142342442-7c594fb2-d5be-40e5-b3fb-acffd6964569.png">
+
 
 Your Birblog:  
-<img width="422" alt="Screen Shot 2021-11-11 at 10 41 04 PM" src="https://user-images.githubusercontent.com/29576093/141416003-af3e1bb2-00fe-4424-a326-37d6c3af1224.png">  
+ <img width="716" alt="Screen Shot 2021-11-17 at 7 47 21 PM" src="https://user-images.githubusercontent.com/29576093/142342498-781f07e5-7644-4a77-a31d-009d28e54263.png">
+
 
 Sighting Details:  
-<img width="459" alt="Screen Shot 2021-11-11 at 10 42 24 PM" src="https://user-images.githubusercontent.com/29576093/141416130-e5a40eaf-fff3-46ad-b0a2-58741eec8d28.png">  
+<img width="717" alt="Screen Shot 2021-11-17 at 7 48 21 PM" src="https://user-images.githubusercontent.com/29576093/142342610-3d755797-71c5-4d49-8429-f57322bb9356.png">
 
 Birb Details:  
-<img width="590" alt="Screen Shot 2021-11-11 at 10 44 09 PM" src="https://user-images.githubusercontent.com/29576093/141416293-8d2a1f4d-5bab-4340-b205-ce37a2229090.png">  
+ <img width="718" alt="Screen Shot 2021-11-17 at 7 48 38 PM" src="https://user-images.githubusercontent.com/29576093/142342638-17e7d72d-269a-4d20-9e62-9f8785097e09.png">
+
 
 All Watchers:  
-<img width="438" alt="Screen Shot 2021-11-11 at 10 44 37 PM" src="https://user-images.githubusercontent.com/29576093/141416331-7f981707-b797-41f2-9a63-6f7392858256.png">  
+  <img width="696" alt="Screen Shot 2021-11-17 at 7 48 58 PM" src="https://user-images.githubusercontent.com/29576093/142342677-d4211155-960a-4262-a2f3-65ad96ce3597.png">
+
 
 Birb Search:  
-<img width="319" alt="Screen Shot 2021-11-11 at 10 45 09 PM" src="https://user-images.githubusercontent.com/29576093/141416373-25a8d655-0f18-4ada-a7f6-f053244bdc6d.png">
+  <img width="719" alt="Screen Shot 2021-11-17 at 7 49 15 PM" src="https://user-images.githubusercontent.com/29576093/142342706-ac88c75e-88cf-406b-a386-bc72a7d13acc.png">
+
+
 
 
 ## Technologies and Sources
