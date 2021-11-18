@@ -9,7 +9,7 @@ router.get('/', function (req, res) {
   }
   else {
     res.render('index', { 
-      title: 'Home Page', 
+      title: 'BirbWatcher', 
       user: user
     })
   }
