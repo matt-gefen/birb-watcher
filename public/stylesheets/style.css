@@ -47,6 +47,10 @@ nav {
   justify-self: flex-start;
 }
 
+a:link {
+  text-decoration: none;
+}
+
 main {
   color: black;
   height: 100vh;
