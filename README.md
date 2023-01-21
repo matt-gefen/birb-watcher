@@ -12,7 +12,7 @@ I hope you enjoy it! I would also recommend using the [Merlin Bird ID Applicatio
 Get outside and let the rest of us know what you find!
 
 ## Getting Started
-[Deployed App - Heroku](https://birb-watcher.herokuapp.com)  
+[Deployed App - Fly.io](https://birb-watcher.fly.dev)  
 - In order to log in and use the app you will need a Google account! Google Oath is used as the sole means of creating a profile in this current iteration.  
 
 [Trello Planning](https://trello.com/b/Y0AByxuH/blue-sky-bud)
